@@ -1,6 +1,7 @@
 import createVtkModule from '../public/vtk_app.mjs';
 import { initDragDrop }    from './drag-drop.js';
 import { initColorPalette } from './color-palette.js';
+import { initUrlLoader }    from './url-loader.js';
 
 const overlay  = document.getElementById('drop-overlay');
 const errMsg   = document.getElementById('error-message');
@@ -21,6 +22,7 @@ createVtkModule().then(module => {
     initDragDrop(app, module.FS);
     initColorPalette(app);
     try { app.start(); } catch(e) { if (String(e) !== 'unwind') throw e; }
+    initUrlLoader(app, module.FS);
 }).catch(err => {
     console.error('WASM load failed:', err);
     setState('erreur', 'Impossible de charger le module VTK WASM.');
