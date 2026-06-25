@@ -73,5 +73,7 @@ void VtkApp::loadFile(const std::string& path) {
 }
 
 void VtkApp::setColor(double r, double g, double b) {
-    // implemented in Task 6
+    if (!actor) return;
+    actor->GetProperty()->SetColor(r, g, b);
+    renderWindow->Render();
 }
