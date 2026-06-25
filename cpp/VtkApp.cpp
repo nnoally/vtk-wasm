@@ -1,8 +1,8 @@
 #include "VtkApp.h"
 #include <algorithm>
 #include <vtkRenderer.h>
-#include <vtkRenderWindow.h>
-#include <vtkRenderWindowInteractor.h>
+#include <vtkWebAssemblyOpenGLRenderWindow.h>
+#include <vtkWebAssemblyRenderWindowInteractor.h>
 #include <vtkActor.h>
 #include <vtkProperty.h>
 #include <vtkPolyDataMapper.h>
@@ -17,12 +17,12 @@ void VtkApp::init() {
     renderer = vtkSmartPointer<vtkRenderer>::New();
     renderer->SetBackground(0.18, 0.18, 0.18);
 
-    renderWindow = vtkSmartPointer<vtkRenderWindow>::New();
+    renderWindow = vtkSmartPointer<vtkWebAssemblyOpenGLRenderWindow>::New();
     renderWindow->SetCanvasSelector("#vtk-canvas");
     renderWindow->AddRenderer(renderer);
     renderWindow->SetSize(800, 600);
 
-    interactor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
+    interactor = vtkSmartPointer<vtkWebAssemblyRenderWindowInteractor>::New();
     interactor->SetRenderWindow(renderWindow);
     interactor->Initialize();
 

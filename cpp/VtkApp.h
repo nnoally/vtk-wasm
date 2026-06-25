@@ -4,8 +4,8 @@
 #include <vtkSmartPointer.h>
 #include <vtkActor.h>
 #include <vtkRenderer.h>
-#include <vtkRenderWindow.h>
-#include <vtkRenderWindowInteractor.h>
+#include <vtkWebAssemblyOpenGLRenderWindow.h>
+#include <vtkWebAssemblyRenderWindowInteractor.h>
 
 class VtkApp {
 public:
@@ -14,8 +14,8 @@ public:
     void setColor(double r, double g, double b);
 
 private:
-    vtkSmartPointer<vtkRenderWindow>           renderWindow;
-    vtkSmartPointer<vtkRenderer>               renderer;
-    vtkSmartPointer<vtkRenderWindowInteractor> interactor;
+    vtkSmartPointer<vtkWebAssemblyOpenGLRenderWindow>    renderWindow;
+    vtkSmartPointer<vtkRenderer>                         renderer;
+    vtkSmartPointer<vtkWebAssemblyRenderWindowInteractor> interactor;
     vtkSmartPointer<vtkActor>                  actor;
 };

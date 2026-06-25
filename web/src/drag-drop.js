@@ -32,6 +32,8 @@ export function initDragDrop(app, FS) {
             FS.writeFile(path, new Uint8Array(buffer));
             app.loadFile(path);
             setState('charge');
+        }).catch(err => {
+            setState('erreur', err.message || 'Erreur de lecture du fichier');
         });
     });
 }
