@@ -1,0 +1,3 @@
+build/
+web/public/vtk_app.mjs
+web/public/vtk_app.wasm
