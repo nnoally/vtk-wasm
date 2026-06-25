@@ -1,6 +1,5 @@
 import { setState } from './main.js';
-
-const ACCEPTED = ['.stl', '.obj', '.ply', '.vtp', '.vtu'];
+import { ACCEPTED } from './drag-drop.js';
 
 function parseFileUrl(raw) {
     const match = raw.match(/^(https?:\/\/)([^:@\/]+):([^@]+)@(.+)$/);

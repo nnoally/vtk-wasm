@@ -1,6 +1,6 @@
 import { setState } from './main.js';
 
-const ACCEPTED = ['.stl', '.obj', '.ply', '.vtp', '.vtu'];
+export const ACCEPTED = ['.stl', '.obj', '.ply', '.vtp', '.vtu'];
 
 export function initDragDrop(app, FS) {
     const container = document.getElementById('canvas-container');
