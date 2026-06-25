@@ -26,6 +26,8 @@
     footer { padding: 12px 20px; background: #111; border-top: 1px solid #333; }
     #color-palette { display: flex; gap: 10px; align-items: center; }
     #color-palette.disabled { opacity: 0.3; pointer-events: none; }
+    #rotation-hint { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+                     color: #666; font-size: 0.78rem; pointer-events: none; white-space: nowrap; }
     #color-palette button { width: 32px; height: 32px; border-radius: 50%;
                             border: 2px solid transparent; cursor: pointer; transition: transform .15s; }
     #color-palette button:hover { transform: scale(1.15); }
@@ -42,6 +44,7 @@
         <p class="formats">.stl .obj .ply .vtp .vtu</p>
       </div>
       <div id="error-message" hidden></div>
+      <div id="rotation-hint" hidden>Clic + glisser pour tourner · Scroll pour zoomer</div>
     </div>
   </main>
   <footer>

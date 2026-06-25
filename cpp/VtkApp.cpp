@@ -12,6 +12,7 @@
 #include <vtkXMLPolyDataReader.h>
 #include <vtkXMLUnstructuredGridReader.h>
 #include <vtkGeometryFilter.h>
+#include <vtkInteractorStyleTrackballCamera.h>
 
 void VtkApp::init() {
     renderer = vtkSmartPointer<vtkRenderer>::New();
@@ -24,9 +25,15 @@ void VtkApp::init() {
 
     interactor = vtkSmartPointer<vtkWebAssemblyRenderWindowInteractor>::New();
     interactor->SetRenderWindow(renderWindow);
+    interactor->SetCanvasSelector("#vtk-canvas");
+    interactor->SetInteractorStyle(vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New());
     interactor->Initialize();
 
     renderWindow->Render();
+}
+
+void VtkApp::start() {
+    interactor->Start();
 }
 
 void VtkApp::loadFile(const std::string& path) {

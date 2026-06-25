@@ -12,6 +12,7 @@ find_package(VTK REQUIRED COMPONENTS
     IOPLY
     IOXML
     FiltersGeometry
+    InteractionStyle
 )
 
 add_executable(vtk_app

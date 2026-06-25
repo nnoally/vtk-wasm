@@ -10,6 +10,7 @@
 class VtkApp {
 public:
     void init();
+    void start();
     void loadFile(const std::string& path);
     void setColor(double r, double g, double b);
 
