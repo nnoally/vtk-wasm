@@ -1,5 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="UTF-8"><title>VTK WASM</title></head>
-<body><p>VTK WASM Demonstrateur</p></body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VTK WASM — Démonstrateur</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; display: flex; flex-direction: column;
+           height: 100vh; background: #1a1a1a; color: #fff; }
+    header { padding: 12px 20px; background: #111; border-bottom: 1px solid #333; }
+    h1 { font-size: 1.1rem; font-weight: 500; letter-spacing: 0.05em; }
+    main { flex: 1; position: relative; overflow: hidden; }
+    #canvas-container { position: relative; width: 100%; height: 100%; }
+    #vtk-canvas { display: block; width: 100%; height: 100%; }
+    #drop-overlay { position: absolute; inset: 0; display: flex; flex-direction: column;
+                    align-items: center; justify-content: center; gap: 8px;
+                    background: rgba(0,0,0,0.65); pointer-events: none; }
+    #canvas-container.drag-over #drop-overlay {
+      background: rgba(59,130,246,0.25); outline: 3px dashed #3b82f6; }
+    #drop-overlay p { font-size: 1.1rem; }
+    #drop-overlay .formats { color: #888; font-size: 0.82rem; }
+    #error-message { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+                     background: #dc2626; padding: 8px 20px; border-radius: 4px;
+                     font-size: 0.88rem; white-space: nowrap; }
+    footer { padding: 12px 20px; background: #111; border-top: 1px solid #333; }
+    #color-palette { display: flex; gap: 10px; align-items: center; }
+    #color-palette.disabled { opacity: 0.3; pointer-events: none; }
+    #color-palette button { width: 32px; height: 32px; border-radius: 50%;
+                            border: 2px solid transparent; cursor: pointer; transition: transform .15s; }
+    #color-palette button:hover { transform: scale(1.15); }
+    #color-palette button.active { border-color: #fff; }
+  </style>
+</head>
+<body>
+  <header><h1>VTK WASM — Démonstrateur C++</h1></header>
+  <main>
+    <div id="canvas-container">
+      <canvas id="vtk-canvas"></canvas>
+      <div id="drop-overlay">
+        <p>Déposez un fichier 3D ici</p>
+        <p class="formats">.stl .obj .ply .vtp .vtu</p>
+      </div>
+      <div id="error-message" hidden></div>
+    </div>
+  </main>
+  <footer>
+    <div id="color-palette" class="disabled"></div>
+  </footer>
+  <script type="module" src="src/main.js"></script>
+</body>
 </html>
